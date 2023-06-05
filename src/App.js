@@ -3,6 +3,8 @@ import { GlobalStyle } from './globalStyles.js';
 import { UserProvider } from './context/UserContext.js';
 import useToken from './hooks/useToken.js';
 import Home from './Pages/Home.js';
+import SignIn from './Pages/Sign-In.js';
+import SignUp from './Pages/Sign-Up.js';
 
 export default function App() {
   return (
@@ -11,7 +13,9 @@ export default function App() {
         <UserProvider>
           <Router>
             <Routes>
-              <Route path="/" element={<Home />} />           
+              <Route path="/" element={<Home />} />
+              <Route path="/sign-up" element={<SignUp />} />    
+              <Route path="/sign-in" element={<SignIn />} />        
             </Routes>
           </Router>
         </UserProvider>

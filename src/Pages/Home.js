@@ -18,8 +18,8 @@ export default function Home() {
                 <Text>Potencialize sua independência e lucratividade com PowerSource - a plataforma para comprar e vender energia solar excedente com facilidade!</Text>
                 
                 </div>
-                <Button onClick={() => navigate('/')}>Quero fazer login!</Button>
-                <Button onClick={() => navigate('/')}>Quero me cadastrar!</Button>
+                <Button onClick={() => navigate('/sign-in')}>Quero fazer login!</Button>
+                <Button onClick={() => navigate('/sign-up')}>Quero me cadastrar!</Button>
             </Container>
         </>
     )
