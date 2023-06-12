@@ -5,6 +5,7 @@ import useToken from './hooks/useToken.js';
 import Home from './Pages/Home.js';
 import SignIn from './Pages/Sign-In.js';
 import SignUp from './Pages/Sign-Up.js';
+import CreateProduct from './Pages/CreateProduct.js';
 
 export default function App() {
   return (
@@ -15,7 +16,8 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/sign-up" element={<SignUp />} />    
-              <Route path="/sign-in" element={<SignIn />} />        
+              <Route path="/sign-in" element={<SignIn />} />
+              <Route path="/create/product" element={<CreateProduct/>} />         
             </Routes>
           </Router>
         </UserProvider>

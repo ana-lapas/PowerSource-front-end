@@ -17,12 +17,12 @@ export const Text = styled.p`
         text-align: center;
         font-family: 'Expletus Sans', cursive;
         font-size: 20px;
-        margin-top: 25px;
+        margin-top: 35px;
 `;
 
 export const Button = styled.button`
     border: none;
-    border-radius: 5px;
+    border-radius: 15px;
     background-color: #fde400;
     height: 60px;
     width:350px;

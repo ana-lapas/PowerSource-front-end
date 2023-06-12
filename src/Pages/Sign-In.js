@@ -16,7 +16,8 @@ export default function SignIn() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        const promise = axios.post(`${process.env.REACT_APP_API_URL}/signIn`, ({ ...formInfo }))
+        navigate('/create/product');
+        /*const promise = axios.post(`${process.env.REACT_APP_API_URL}/signIn`, ({ ...formInfo }))
             .then((res) => {
                 setUserData(res.data.token);
                 alert('Login realizado com sucesso!');
@@ -25,7 +26,7 @@ export default function SignIn() {
             .catch((error) => {
                 console.log(error.res)
                 alert('Erro, tente novamente');
-            });
+            });*/
     }
 
     return (
