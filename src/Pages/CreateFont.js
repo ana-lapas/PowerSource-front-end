@@ -5,9 +5,9 @@ import { Container, Button, Form, Input, Text } from "../components/create.js";
 import { NavBar } from "../components/navbar.js";
 import UserContext from '../context/UserContext.js';
 
-export default function CreateProduct() {
+export default function CreateFont() {
     const navigate = useNavigate();
-    const [formInfo, setFormInfo] = useState({ fromWhere: '', month: '', amount: '', price: '' });
+    const [formInfo, setFormInfo] = useState({ country: '', street: '', localeN: '', photo: '' });
     const { setUserData } = useContext(UserContext);
 
     function handleForm(e) {
@@ -32,36 +32,36 @@ export default function CreateProduct() {
         <Container>
             <NavBar />                
                 <Form onSubmit={handleSubmit}>
-                <Text>Preencha o formulário para vender o seu excedente de energia:</Text>
+                <Text>Preencha o formulário para adicionar sua fazenda como fonte de energia:</Text>
                     <Input type="text"
-                        placeholder="Local da fonte"
-                        name="fromWhere"
+                        placeholder="País"
+                        name="country"
                         onChange={handleForm}
-                        value={formInfo.fromWhere}
+                        value={formInfo.country}
                         focus
                         required
                     />
-                    <Input type="month"
-                        placeholder="Referente ao mês"
-                        name="month"
+                    <Input type="text"
+                        placeholder="Endereço (Rua, av., rodovia, etc)"
+                        name="street"
                         onChange={handleForm}
-                        value={formInfo.month}
+                        value={formInfo.street}
+                        focus
+                        required
+                    />                    
+                    <Input type="text"
+                        placeholder="Nome da Fazenda"
+                        name="localeN"
+                        onChange={handleForm}
+                        value={formInfo.localeN}
                         focus
                         required
                     />
-                    <Input type="number"
-                        placeholder="Quantidade de energia"
-                        name="amount"
+                    <Input type="url"
+                        placeholder="Link da foto da Fazenda"
+                        name="photo"
                         onChange={handleForm}
-                        value={formInfo.amount}
-                        focus
-                        required
-                    />
-                    <Input type="number"
-                        placeholder="Valor total (em reais R$)"
-                        name="price"
-                        onChange={handleForm}
-                        value={formInfo.price}
+                        value={formInfo.photo}
                         focus
                         required
                     />
