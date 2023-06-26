@@ -16,7 +16,7 @@ export default function SignIn() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        navigate('/create/product');
+        navigate('/menu');
         /*const promise = axios.post(`${process.env.REACT_APP_API_URL}/signIn`, ({ ...formInfo }))
             .then((res) => {
                 setUserData(res.data.token);

@@ -6,14 +6,14 @@ import { NavBar } from "../components/navbar.js";
 
 export default function SignUp() {
     const navigate = useNavigate();
-    const [formInfo, setFormInfo] = useState({ name: '', email: '', password: '' });
+    const [formInfo, setFormInfo] = useState({ name: '', email: '', cpf: '', password: '' });
     function handleForm(e) {
         setFormInfo({ ...formInfo, [e.target.name]: e.target.value });
     }
 
     function handleSubmit(e) {
         e.preventDefault();
-        const promise = axios.post(`${process.env.REACT_APP_API_URL}/signUp`, ({ ...formInfo }));
+        const promise = axios.post(`http://localhost:5000/auth/sign-up`, ({ ...formInfo }));
         promise.then((response) => {
             alert('Inscrito com sucesso! Por favor, faça login.');
             navigate('/sign-in');
@@ -35,6 +35,14 @@ export default function SignUp() {
                     value={formInfo.name}
                     focus
                     required
+                />                
+                <Input type="cpf"
+                    placeholder="Digite seu CPF: XXX.XXX.XXX-XX"
+                    name="cpf"
+                    onChange={handleForm}
+                    value={formInfo.cpf}
+                    focus
+                    required
                 />
                 <Input type="email"
                     placeholder="Email"
@@ -44,7 +52,6 @@ export default function SignUp() {
                     focus
                     required
                 />
-
                 <Input type="password"
                     placeholder="Senha"
                     name="password"
@@ -56,7 +63,7 @@ export default function SignUp() {
                 <Button type="submit" >Entrar</Button>
             </Form>
             <RegisterLink onClick={() => navigate('/sign-in')}>
-                Primeira vez? Cadastre-se!
+                Já possui conta? Faça login!
             </RegisterLink>
         </Container>
     </>

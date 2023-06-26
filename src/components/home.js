@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 
-
 export const Container = styled.div`
     display: flex;
     flex-direction: row;
@@ -11,13 +10,18 @@ export const Container = styled.div`
     justify-content: center;
     align-items: space-around; 
     margin-top:10vh;
-`;
+    @media (max-width: 600px) {
+        div {
+            width: 100%; 
+        }
+}`
+
 export const Text = styled.p`
-        color: #ffffff;
-        text-align: center;
-        font-family: 'Expletus Sans', cursive;
-        font-size: 20px;
-        margin-top: 35px;
+    color: #ffffff;
+    text-align: center;
+    font-family: 'Expletus Sans', cursive;
+    font-size: 20px;
+    margin-top: 35px;
 `;
 
 export const Button = styled.button`
@@ -25,9 +29,9 @@ export const Button = styled.button`
     border-radius: 15px;
     background-color: #fde400;
     height: 60px;
-    width:350px;
+    width: 350px;
     color: #ffffff;
     font-family: 'Expletus Sans', cursive;
-    font-size: 20px; 
+    font-size: 20px;
     margin-right: 25px;
 `

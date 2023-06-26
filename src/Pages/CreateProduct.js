@@ -7,7 +7,7 @@ import UserContext from '../context/UserContext.js';
 
 export default function CreateProduct() {
     const navigate = useNavigate();
-    const [formInfo, setFormInfo] = useState({ fromWhere: '', month: '', amount: '', price: '' });
+    const [formInfo, setFormInfo] = useState({ font: '', month: '', energy_amount: '', price: '' });
     const { setUserData } = useContext(UserContext);
 
     function handleForm(e) {
@@ -35,13 +35,13 @@ export default function CreateProduct() {
                 <Text>Preencha o formulário para vender o seu excedente de energia:</Text>
                     <Input type="text"
                         placeholder="Local da fonte"
-                        name="fromWhere"
+                        name="font"
                         onChange={handleForm}
-                        value={formInfo.fromWhere}
+                        value={formInfo.font}
                         focus
                         required
                     />
-                    <Input type="month"
+                    <Input type="text"
                         placeholder="Referente ao mês"
                         name="month"
                         onChange={handleForm}
@@ -51,9 +51,9 @@ export default function CreateProduct() {
                     />
                     <Input type="number"
                         placeholder="Quantidade de energia"
-                        name="amount"
+                        name="energy_amount"
                         onChange={handleForm}
-                        value={formInfo.amount}
+                        value={formInfo.energy_amount}
                         focus
                         required
                     />
