@@ -9,7 +9,9 @@ export function NavBar() {
                 <div onClick={() => navigate('/')}>
                     PowerSource
                 </div>
-                <MenuHeader>
+                
+            </TopBar>
+            <MenuHeader>
                     <div onClick={() => navigate('/create/product')}>
                         Vender Energia
                     </div>
@@ -17,14 +19,13 @@ export function NavBar() {
                         Comprar energia
                     </div>
                 </MenuHeader>
-            </TopBar>
         </>
     )
 }
 const TopBar = styled.div`
     display: flex;
     height: 10vh;
-    width: 100vw;
+    width: 50vw;
     flex-direction: row;
     background-color: #FDE400;
     color: #ffffff;
@@ -35,13 +36,19 @@ const TopBar = styled.div`
     z-index: 1;
     position: fixed;
     top: 0;
-    left: 0%;
+    left: 0;
+    @media (max-width: 600px) {
+	div {
+		width: 100%; 
+	}
+}
 `;
 
 const MenuHeader = styled.div`
     display: flex;
     height: 10vh;
-    width: 100vw;
+    background-color: #FDE400;
+    width: 50vw;
     flex-direction: row;
     color: #ffffff;
     font-family: 'Expletus Sans', cursive;
@@ -51,5 +58,10 @@ const MenuHeader = styled.div`
     z-index: 1;
     position: fixed;
     top: 0;
-    left: 0%;
+    right: 0;
+    @media (max-width: 600px) {
+	div {
+		width: 100%;
+	}
+}
 `

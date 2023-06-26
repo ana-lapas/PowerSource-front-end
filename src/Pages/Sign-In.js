@@ -8,7 +8,7 @@ import UserContext from '../context/UserContext.js';
 export default function SignIn() {
     const navigate = useNavigate();
     const [formInfo, setFormInfo] = useState({ email: '', password: '' });
-    const { setUserData } = useContext(UserContext);
+    const { token, setToken } = useContext(UserContext);
 
     function handleForm(e) {
         setFormInfo({ ...formInfo, [e.target.name]: e.target.value });
@@ -16,17 +16,18 @@ export default function SignIn() {
 
     async function handleSubmit(e) {
         e.preventDefault();
-        navigate('/menu');
-        /*const promise = axios.post(`${process.env.REACT_APP_API_URL}/signIn`, ({ ...formInfo }))
+        const promise = axios.post(`http://localhost:5000/auth/sign-in`, ({ ...formInfo }))
             .then((res) => {
-                setUserData(res.data.token);
+                
+                setToken(res.data.user);
+                console.log(token)
                 alert('Login realizado com sucesso!');
-                navigate('/dashboard');
+                navigate('/menu');
             })
             .catch((error) => {
                 console.log(error.res)
                 alert('Erro, tente novamente');
-            });*/
+            });
     }
 
     return (

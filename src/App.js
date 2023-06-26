@@ -9,7 +9,6 @@ import CreateProduct from './Pages/CreateProduct.js';
 import Menu from './Pages/Menu.js';
 import CreateFont from './Pages/CreateFont.js';
 import Products from './Pages/Products.js';
-import Checkout from './Pages/Checkout.js';
 
 export default function App() {
   return (
@@ -24,8 +23,7 @@ export default function App() {
               <Route path="/menu" element={<Menu />} />  
               <Route path="/create/product" element={<CreateProduct/>} />
               <Route path="/create/font" element={<CreateFont/>} />   
-              <Route path="/products" element={<Products />} />                 
-              <Route path="/checkout" element={<Checkout />} />          
+              <Route path="/products" element={<Products />} />           
             </Routes>
           </Router>
         </UserProvider>

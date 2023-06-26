@@ -6,10 +6,10 @@ const UserContext = createContext();
 export default UserContext;
 
 export function UserProvider({ children }) {
-  const [userData, setUserData] = useLocalStorage('userData', {});
+  const [token, setToken] = useLocalStorage('token', {});
   const [kart, setKart] = useState([]);
   return (
-    <UserContext.Provider value={{ userData, setUserData, kart, setKart }}>
+    <UserContext.Provider value={{ token, setToken, kart, setKart }}>
       {children}
     </UserContext.Provider>
   );
