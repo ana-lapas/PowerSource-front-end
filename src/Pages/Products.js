@@ -35,6 +35,7 @@ export default function Products() {
             console.log(err.message);
         }
     }
+
     function checkToken(token) {
         if (!token) {
             alert("Para acessar essa página você deve estar logado!");
@@ -43,14 +44,14 @@ export default function Products() {
     }
     async function makePurchase(kart) {
         checkToken();
-        const idS = kart.map((k)=>k.id);
-        const seller_id = kart.map((k)=>k.user_id);
+        const idS = kart.map((k) => k.id);
+        const seller_id = kart.map((k) => k.user_id);
         let totalPrice = 0;
-        for(let i = 0; i < kart.length; i++){ 
+        for (let i = 0; i < kart.length; i++) {
             totalPrice += parseInt(kart[i].price);
         }
         let totalEnergy = 0;
-        for(let i = 0; i <kart.length; i++){ 
+        for (let i = 0; i < kart.length; i++) {
             totalEnergy += parseInt(kart[i].energy_amount);
         }
         const purchaseData = {
@@ -58,7 +59,7 @@ export default function Products() {
             seller_id: seller_id,
             quantity: totalEnergy,
             price: totalPrice,
-        }        
+        }
         try {
             const productsData = await purchase(token, purchaseData);
             alert("Sua compra foi concluída!");
@@ -81,7 +82,14 @@ export default function Products() {
                 {(products.length !== 0) && (goToKart === false) ? <>{
                     products.map((product) => <CardProduto product={product} addToKart={addToKart} />)
                 }
-                </> : ''}
+                </> : <div style={{
+                    'font-size': '25px',
+                    'color': '#c8c8c8',
+                    'margin': '0 auto',
+                    'padding': '100px'
+                }}>
+                    Ainda não temos nenhum produto cadastrado na nossa base de dados.
+                </div>}
 
                 {(kart.length !== 0) & (goToKart === false) ? <KartButton onClick={() => setGoToKart(true)}>
                     Ir para o carrinho</KartButton> : ''}
@@ -91,8 +99,8 @@ export default function Products() {
                         product={product}
                         removeFromKart={removeFromKart} />
                     )}
-                    <KartButton onClick={()=>makePurchase(kart)}>Finalizar compra</KartButton>
-                </>: ''}
+                    <KartButton onClick={() => makePurchase(kart)}>Finalizar compra</KartButton>
+                </> : ''}
 
             </ContainerProdutos>
         </>
