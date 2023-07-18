@@ -13,7 +13,7 @@ export default function SignUp() {
 
     function handleSubmit(e) {
         e.preventDefault();
-        const promise = axios.post(`http://localhost:5000/auth/sign-up`, ({ ...formInfo }));
+        const promise = axios.post(`${process.env.REACT_APP_API_BASE_URL}/auth/sign-up`, ({ ...formInfo }));
         promise.then((response) => {
             alert('Inscrito com sucesso! Por favor, faça login.');
             navigate('/sign-in');

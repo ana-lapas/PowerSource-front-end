@@ -29,7 +29,7 @@ export default function Products() {
 
     async function getProducts() {
         try {
-            const productsData = await axios.get(`http://localhost:5000/products/`);
+            const productsData = await axios.get(`${process.env.REACT_APP_API_BASE_URL}/products/`);
             setProducts(productsData.data);
         } catch (err) {
             console.log(err.message);

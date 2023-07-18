@@ -7,9 +7,8 @@ export default UserContext;
 
 export function UserProvider({ children }) {
   const [token, setToken] = useLocalStorage('token', {});
-  const [kart, setKart] = useState([]);
   return (
-    <UserContext.Provider value={{ token, setToken, kart, setKart }}>
+    <UserContext.Provider value={{ token, setToken }}>
       {children}
     </UserContext.Provider>
   );

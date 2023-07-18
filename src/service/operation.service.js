@@ -4,7 +4,7 @@ export async function purchase(token, purchaseData) {
     const body = {
       purchaseData,
     };
-    const promise = await axios.post('http://localhost:5000/products/create', body, {
+    const promise = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/products/create`, body, {
       headers: {
         Authorization: `Bearer ${token}`,
       },

@@ -2,7 +2,6 @@ import styled from "styled-components";
 
 export function CardProduto(props) {
     const { product, addToKart } = props;
-    console.log(product);
     return (
         <ProductsCard key={product.id} products={product}>
             <p style={{ 'font-size': '38px' }}>{product.energy_amount} kWa por R${product.price},00</p>
@@ -19,7 +18,7 @@ export const ProductsCard = styled.div`
     flex-wrap: wrap;
     border-radius: 20px;
     flex-direction: column;    
-    height: 280px;
+    height: 340px;
     width: 240px;
     background-color: #ffffff;
     justify-content: flex-start;

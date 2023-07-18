@@ -4,10 +4,11 @@ import { useState, useContext, useEffect } from "react";
 import { Container, Button, Form, Input, Text } from "../components/create.js";
 import { NavBar } from "../components/navbar.js";
 import UserContext from '../context/UserContext.js';
+import { createNewProduct } from "../service/product.service.js";
 
 export default function CreateProduct() {
     const navigate = useNavigate();
-    const [formInfo, setFormInfo] = useState({ font: '', month: 0, energy_amount: 0, price: 0 });
+    const [formInfo, setFormInfo] = useState({ font: '', month: '', energy_amount: '', price: '' });
     const token = useContext(UserContext);
 
     function handleForm(e) {
@@ -26,18 +27,22 @@ export default function CreateProduct() {
 
     async function handleSubmit(e) {
         e.preventDefault();
+        const productData = {
+            font: formInfo.font, 
+            month: Number(formInfo.month), 
+            energy_amount: Number(formInfo.energy_amount), 
+            price: Number(formInfo.price)
+        }
+        
         if(formInfo.month > 13 || formInfo.month < 1){
             alert("O campo mês deve ser um número entre 1 e 12");
             navigate('/menu');
         }
-        const promise = axios.post(`http://localhost:5000/products/create`, ({ ...formInfo }), {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        })
+        createNewProduct({token, productData})
             .then((res) => {
-                console.log(res.data)
+                console.log(res.data);
                 alert('Produto criado com sucesso!');
+                setFormInfo({font: '', month: '', energy_amount: '', price: ''});
                 navigate('/menu');
             })
             .catch((error) => {
